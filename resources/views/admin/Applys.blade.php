@@ -44,7 +44,7 @@
                                       
                                       <td>{{$apply->phone_s}}</td>
                                       
-                                      <td>{{$apply->email_c}}</td>
+                                      <td>{{$apply->email}}</td>
                                       
                                       <td id="apply_td{{$apply->id}}">
                                         @if($apply->promoter_id != NULL)
@@ -510,8 +510,8 @@ $(document).on('click', '#ModifyApplys', function() {
                 {
                     var s=$("input[type='radio'][name=status]:checked").val();
                     var message=$('#razon').val();
-                    var url = 'modify_applys/'+x;
-                    console.log(s);
+                    var url = 'AdminAproveOrDenialApplys/'+x;
+                    
                     e.preventDefault();
                     $.ajax({
                             url: url,

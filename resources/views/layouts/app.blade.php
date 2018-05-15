@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'LEIPEL') }}</title>
 
     <!-- Styles -->
     {{--<link href="{{ asset("css/app.css") }}" rel="stylesheet">--}}
@@ -70,22 +70,7 @@
 </head>
 <body>
 <div id="app" class="hold-transition skin-blue sidebar-mini">
-    <header class="main-header">
-        <!-- Logo -->
-        <a href="{{ url('/') }}" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
-            {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                {{--{{ config('app.name', 'Leipel') }}--}}
-            {{--</a>--}}
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        @include('layouts.partials.navbar')
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    @include('layouts.partials.sidebar')
+    
 
     @yield('content')
 

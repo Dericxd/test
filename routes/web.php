@@ -160,7 +160,7 @@ Route::get('/promoter_delete/{id}','AdminController@DeletePromoter');
 Route::post('/add_promoter_to/{id}','AdminController@AddPromoterToApllys');
 
 Route::get('/delete_promoter_from/{id_apply}/{id_promoter}','AdminController@DeletePromoterFromApllys');
-Route::post('/modify_applys/{id}','AdminController@StatusApllys');
+Route::post('AdminAproveOrDenialApplys/{id}','AdminController@StatusApllys');
 
 Route::get('/delete_applys_from/{promoter}/{applys}','AdminController@DeleteApplysFromPromoter');
 Route::get('seller_complete_f/{id}/{code}', 'SellerController@CompleteRegistrationForm');

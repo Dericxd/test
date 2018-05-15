@@ -327,6 +327,7 @@ class AdminController extends Controller
         if ($request->status=='Rechazado') 
         {
           $seller= Seller::find($id);
+          
           $data=$seller->delete();          
         }
         else
@@ -401,10 +402,11 @@ class AdminController extends Controller
 			$applys->assing_at = $current = Carbon::now();
 
       $applys->save();
-      
-      Mail::to($applys->email_c)->send(new PromoterAssing($applys));
+        
+      $mail=Mail::to($applys->email_c)->send(new PromoterAssing($applys));
 
-			return response()->json($applys); 
+      			
+      return response()->json($applys); 
 		}
 
 		public function DeletePromoterFromApllys($id_apply,$id_promoter)
@@ -415,11 +417,12 @@ class AdminController extends Controller
 			return response()->json($applys);	
 		}
 
-		public function StatusApllys(Request $request, $id)
+		public function StatusApllys($id,Request $request )
 		{
 			$applys= ApplysSellers::find($id);
 			$applys->status = $request->status;
-			
+			$applys->save();
+      
 			if ($request->status == 'Aprobado') 
 			{
 			
@@ -438,7 +441,7 @@ class AdminController extends Controller
 	
 				$applys->expires_at= $current->addDays(7);
 				
-				$applys->save();
+				
 				
 				Mail::to($applys->email_c)->send(new StatusApplys($applys,$request->message));
 
@@ -447,7 +450,7 @@ class AdminController extends Controller
       else
       {
         Mail::to($applys->email_c)->send(new StatusApplys($applys,$request->message));
-        $applys->save();  
+          
       }
 			
 	
